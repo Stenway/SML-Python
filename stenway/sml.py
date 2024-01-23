@@ -172,7 +172,7 @@ class SmlDocument:
 		self.emptyNodesAfter = []
 	
 	def setDefaultIndentation(self, defaultIndentation):
-		if (defaultIndentation != None and strlen(defaultIndentation) > 0 and
+		if (defaultIndentation != None and len(defaultIndentation) > 0 and
 				not WsvString.isWhitespace(defaultIndentation)):
 			raise Exception("Indentation value contains non whitespace character")
 		
@@ -488,7 +488,7 @@ class SmlSerializer:
 			endKeyword = None
 		
 		result = SmlSerializer.serializeElementNonPreserving(document.getRoot(), 0, defaultIndentation, endKeyword)
-		result = substr(result, 0, -1)
+		result = result[0:-1]
 		return result
 	
 	def serializeElementNonPreserving(element, level, defaultIndentation, endKeyword):
